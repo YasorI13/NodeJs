@@ -11,7 +11,7 @@ app.use(morgan('combined'));    // use morgan to log requests
 app.use(express.static(path.join(__dirname, '/public/'))); // use express to serve static files
 
 app.get("/", (req, res) =>{
-    res.send("Hello World!");
+    res.send("Hello Suriya");
 });
 
 app.listen(port, () => {
