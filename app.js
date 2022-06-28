@@ -10,8 +10,13 @@ const PORT = process.env.PORT;  // port to listen on
 app.use(morgan('combined'));    // use morgan to log requests
 app.use(express.static(path.join(__dirname, '/public/'))); // use express to serve static files
 
+app.set("views","./src/views"); // set the views directory
+app.set("view engine","ejs"); // set the view engine to ejs
+
 app.get("/", (req, res) =>{
-    res.send("Hello Suriya");
+    //  res.send("Hello Suriya");
+    res.render('index', {username: 'Suriya' , customers : ["Suriya1", "Suriya2", "Suriya3"]});
+
 });
 
 app.listen(PORT, () => {
