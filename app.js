@@ -3,6 +3,7 @@ const chalk = require('chalk'); // for color output
 const debug = require('debug')('app'); // debug is a function
 const morgan = require('morgan'); // middleware for logging requests
 const path = require('path'); // path is a node module
+const products = require('./data/products.json'); // import products.json
 const productRouter = express.Router(); // router is a function
 
 const app = express();  // create an express app
@@ -15,15 +16,7 @@ app.set("views", "./src/views"); // set the views directory
 app.set("view engine", "ejs"); // set the view engine to ejs
 
 productRouter.route("/").get((req, res) => {
-    res.render('products',{
-        products: [
-            {name: "Product 1",Desc:"สูตรที่ 1 นะ", price: "$10.00"},
-            {name: "Product 2",Desc:"สูตรที่ 2 นะ", price: "$20.00"},
-            {name: "Product 3",Desc:"สูตรที่ 3 นะ", price: "$30.00"},
-            {name: "Product 4",Desc:"สูตรที่ 4 นะ", price: "$40.00"},
-            {name: "Product 5",Desc:"สูตรที่ 5 นะ", price: "$50.00"}           
-        ]
-    })
+    res.render("products",products,)
 });
 
 productRouter.route("/1").get((req, res) => {
